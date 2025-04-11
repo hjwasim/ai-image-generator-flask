@@ -2,11 +2,13 @@ from flask import Flask
 from flask_jwt_extended import JWTManager
 from flask_sqlalchemy import SQLAlchemy
 from .image_generation.image_generation import image_gen_bp
+from flask_cors import CORS
 
 db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__)
+    CORS(app)
 
     app.config['SECRET_KEY'] = 'priya#123$yoga'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///yogapriya.db'
